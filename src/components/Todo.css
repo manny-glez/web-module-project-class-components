@@ -1,0 +1,63 @@
+h2 {
+  color: #ec3944;
+  text-align: center;
+  font-size: 3rem;
+  font-family: Arial;
+}
+
+body {
+  background-color: #1b212c;
+}
+
+li {
+  color: #ec3944;
+  font-size: 2rem;
+}
+
+#task-list {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  margin: auto;
+  align-items: center;
+}
+
+li {
+  margin-bottom: 10px;
+  font-family: Arial;
+  border: 1px solid #ec3944;
+  color: white;
+  text-align: center;
+  list-style: none;
+  width: 300px;
+  padding: 10px;
+}
+
+li:hover {
+  background-color: #ec3944;
+}
+
+.completed {
+  text-decoration: line-through 3px solid white;
+}
+
+#cleared {
+  display: none;
+}
+
+button {
+  margin-top: 20px;
+  color: #ec3944;
+  background-color: #1b212c;
+  padding: 1.5rem;
+  border-radius: 20px;
+  border: 1px solid #ec3944;
+  width: 150px;
+  color: white;
+  font-size: 1.7rem;
+  font-family: Arial;
+}
+
+button:hover {
+  background-color: #ec3944;
+}
