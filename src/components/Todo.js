@@ -1,16 +1,11 @@
 import React from 'react';
 
 const Todo = props => {
-  const { title, completeTask } = props;
-
-  const handleClick = () => {
-  console.log(title)
-  completeTask()
-}
+  const { title, completeTask, id, completed } = props;
 
     return (
-      <div id='todoId' onClick={handleClick} className="todo">
-        <li>{title}</li>
+      <div id='todoId' onClick={()=> completeTask(id)} className="todo">
+        <li className={`${completed ? "completed" : ""}`} >{title}</li>
       </div>
     )
 }

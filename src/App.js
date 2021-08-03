@@ -42,11 +42,18 @@ class App extends React.Component {
     }
   }
 
-  completeTask = () => {
-    // console.log("completed task")
-    const task = document.querySelector('li');
-    task.style.textDecoration = 'line-through';
-    task.style.color = 'grey';
+  completeTask = id => {
+    console.log(id)
+    this.setState({
+      todos: this.state.todos.map(todo => {
+        if (todo.id === id) {
+          return ({
+            ...todo,
+            completed: !todo.completed
+          })
+        }return (todo)
+      })
+    })
   }
 
   addTask = taskName => {
@@ -72,7 +79,7 @@ class App extends React.Component {
 
         {this.state.todos.map(todo => {
           return (
-            <Todo deleteTask={this.deleteTask} completeTask={this.completeTask} key={todo.id} title={todo.title}/>
+            <Todo completeTask={this.completeTask} key={todo.id} title={todo.title} id={todo.id} completed={todo.completed}/>
           )
         })}
 
