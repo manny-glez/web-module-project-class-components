@@ -1,6 +1,7 @@
 import React from 'react';
 import './components/Todo.css'
 import Todo from './components/Todo.js'
+import TodoForm from "./components/TodoForm";
 
 const todos = [
   {
@@ -48,17 +49,33 @@ class App extends React.Component {
     task.style.color = 'grey';
   }
 
+  addTask = taskName => {
+
+    const newTask = {
+      title: taskName,
+      id: Date.now(),
+      completed: false
+    }
+
+    this.setState({
+      todos: [...this.state.todos, newTask]
+    })
+  }
+
   render() {
     return (
       <div>
+
         <h1>Welcome to Your To Do App!</h1>
-        <input placeholder='Add New Task' />
-        <button>Add To Do</button>
-        {todos.map(todo => {
+
+        <TodoForm addTask={this.addTask} />
+
+        {this.state.todos.map(todo => {
           return (
             <Todo deleteTask={this.deleteTask} completeTask={this.completeTask} key={todo.id} title={todo.title}/>
           )
         })}
+
         <button id='clear-button'>clear completed tasks</button>
       </div>
     );
